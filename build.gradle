@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'cn.diyiliu'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springVersion = '5.3.21'
+    lombokVersion = '1.18.22'
+    logbackVersion = '1.2.7'
+}
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    implementation "ch.qos.logback:logback-classic:$logbackVersion"
+
+    implementation "org.springframework:spring-context:$springVersion"
+    implementation 'com.alibaba.nacos:nacos-spring-context:1.1.1'
+    implementation 'com.alibaba.nacos:nacos-client:2.1.0'
+    testImplementation 'junit:junit:4.13'
+}
+
+test {
+    useJUnitPlatform()
+}
